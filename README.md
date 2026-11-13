@@ -1,3 +1,4 @@
+<img width="1861" height="936" alt="Screenshot From 2026-11-13 18-45-47" src="https://github.com/user-attachments/assets/fcffb075-24b3-4e1d-bdd9-c4fe7f16f7c4" />
 # Cafeteria Gourmet Digital
 
 Aplicação acadêmica de e-commerce desenvolvida com Python, Flask, SQLite, HTML, CSS e JavaScript, organizada em padrão MVC.
