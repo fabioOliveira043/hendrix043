@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div><p class="eyebrow">CAFÉS ESPECIAIS · MOMENTOS ÚNICOS</p><h1>Seu café favorito,<br><em>com mais sabor.</em></h1>
+  <p>Descubra cafés selecionados e delícias artesanais preparados para transformar sua pausa em um momento especial.</p>
+  <a class="button" href="#catalogo">Conheça nosso cardápio</a></div>
+  <div class="hero-art"><div class="coffee-cup">☕</div><span>TORRA ARTESANAL<br>SELEÇÃO ESPECIAL</span></div>
+</section>
+<section id="catalogo" class="section-heading"><div><p class="eyebrow">NOSSA SELEÇÃO</p><h2>Favoritos da cafeteria</h2></div><p>Qualidade em cada detalhe.</p></section>
+<div class="products">
+{% for p in products %}
+  <article class="product-card">
+    <div class="product-art">{{ ["☕","🥐","🍪","🧋","🫘","🍰"][loop.index0 % 6] }}</div>
+    <div class="product-info"><h3>{{ p.name }}</h3><p>{{ p.description }}</p><div class="product-bottom"><strong>R$ {{ "%.2f"|format(p.price_cents/100) }}</strong>
+      <form method="post" action="{{ url_for('shop.add_to_cart', product_id=p.id) }}"><input type="hidden" name="quantity" value="1"><button class="button small">Adicionar</button></form>
+    </div></div>
+  </article>
+{% else %}<p>Nenhum produto disponível no momento.</p>{% endfor %}
+</div>
+{% endblock %}

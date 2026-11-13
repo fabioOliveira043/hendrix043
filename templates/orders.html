@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block title %}Meus pedidos{% endblock %}
+{% block content %}<p class="eyebrow">ACOMPANHE SUA COMPRA</p><h1>Meus pedidos</h1>
+{% for order in orders %}<article class="order-card"><div><strong>Pedido #{{ order.id }}</strong><p>{{ order.created_at }}</p></div><div><span class="status">{{ order.status }}</span><p>Pagamento: {{ order.payment_status }}</p></div><h3>R$ {{ "%.2f"|format(order.total_cents/100) }}</h3></article>{% else %}<div class="empty">Você ainda não realizou pedidos.</div>{% endfor %}{% endblock %}

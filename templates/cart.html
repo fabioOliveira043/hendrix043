@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Carrinho{% endblock %}
+{% block content %}<p class="eyebrow">SUA SACOLA</p><h1>Carrinho de compras</h1>
+{% if items %}<form method="post" action="{{ url_for('shop.update_cart') }}"><div class="table-wrap"><table><tr><th>Produto</th><th>Preço</th><th>Quantidade</th><th>Subtotal</th></tr>
+{% for item in items %}<tr><td>{{ item.product.name }}</td><td>R$ {{ "%.2f"|format(item.product.price_cents/100) }}</td><td><input class="qty" type="number" min="0" max="99" name="qty_{{ item.product.id }}" value="{{ item.quantity }}"></td><td>R$ {{ "%.2f"|format(item.subtotal/100) }}</td></tr>{% endfor %}</table></div><button class="button secondary">Atualizar carrinho</button></form>
+<div class="checkout"><h2>Total: R$ {{ "%.2f"|format(total/100) }}</h2><form method="post" action="{{ url_for('shop.checkout') }}"><button class="button">Finalizar pedido</button></form><small>O pedido será registrado com pagamento pendente. Nenhuma cobrança real é realizada.</small></div>
+{% else %}<div class="empty"><p>Seu carrinho está vazio.</p><a class="button" href="{{ url_for('shop.home') }}">Ver produtos</a></div>{% endif %}{% endblock %}

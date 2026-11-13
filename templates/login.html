@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block title %}Entrar{% endblock %}
+{% block content %}<section class="form-card"><p class="eyebrow">BEM-VINDO DE VOLTA</p><h1>Entrar na sua conta</h1><form method="post"><label>E-mail<input type="email" name="email" required></label><label>Senha<input type="password" name="password" required></label><button class="button full">Entrar</button></form><p>Não tem conta? <a href="{{ url_for('auth.register') }}">Cadastre-se</a></p></section>{% endblock %}

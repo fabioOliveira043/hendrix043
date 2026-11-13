@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block title %}{{ product.name }} · Cafeteria Gourmet{% endblock %}
+{% block content %}<div class="detail-card"><div class="detail-art">☕</div><div><p class="eyebrow">CAFETERIA GOURMET</p><h1>{{ product.name }}</h1><p>{{ product.description }}</p><h2>R$ {{ "%.2f"|format(product.price_cents/100) }}</h2>
+<form method="post" action="{{ url_for('shop.add_to_cart', product_id=product.id) }}"><label>Quantidade <input type="number" name="quantity" min="1" max="99" value="1"></label><button class="button">Adicionar ao carrinho</button></form></div></div>{% endblock %}
